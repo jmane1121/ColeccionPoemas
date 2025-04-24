@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2D0000;; /* Rojo oscuro */
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #FFB6C1; /* Rosa claro */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dedication {
+    font-family: 'Playfair Display', serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    /*background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    /*border-left: 3px solid #FFB6C1;*/
+}
+
+.dedication p {
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+    color: #E0E0E0;
+}
+
+.name {
+    color: #FFB6C1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3em;
+    color: #FFB6C1;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.poem-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.poem-card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.poem-card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.poem-card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+    background-color: #5D0000; /* Rojo vino oscuro */
+    color: #FFFFFF;
+    transform: rotateY(0deg);
+    border: 1px solid #3D0000;
+}
+
+.card-front i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #FF6B6B; /* Rojo claro para contraste */
+    text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+}
+
+.card-front h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+    background-color: #1E1E1E;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    border: 1px solid #3D3D3D;
+}
+
+.card-back h2 {
+    color: #FF6B6B;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card-back p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #CCCCCC;
+}
+
+.card-back p:last-child {
+    color: #888888;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #2D0000;
+    color: #AAAAAA;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#hearts-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#romantic-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Estilos para el modo oscuro de los corazones (se controla en JS) */
+.heart-dark {
+    filter: brightness(0.8) saturate(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .poem-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .poem-card {
+        width: 90%;
+        height: 250px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .poem-card {
+        height: 300px;
+    }
+    
+    .card-front, .card-back {
+        padding: 1rem;
+    }
+}
+
